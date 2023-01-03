@@ -18,7 +18,7 @@ class SplashScreen : AppCompatActivity() {
 
             // to get rid of this when u push the back button
             finish()
-        }, 5000)
+        }, 2000)
 
     }
     }
