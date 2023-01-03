@@ -7,26 +7,82 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
+
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="#FFFF"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
-    <TextView
-        android:id="@+id/textView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!"
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/start"
+        android:layout_width="70dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="4dp"
+        android:background="#54b9f0"
+        android:text="Start"
+        android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.094" />
 
-    \
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/arrive"
+        android:layout_width="72dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="4dp"
+        android:background="#54b9f0"
+        android:text="arrive"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/start"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.093" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/Pause"
+        android:layout_width="75dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:background="#54b9f0"
+        android:text="Pause"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/arrive"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.093" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/Resume"
+        android:layout_width="75dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="4dp"
+        android:background="#54b9f0"
+        android:text="Resume"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Pause"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.093" />
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/Complete"
+        android:layout_width="78dp"
+        android:layout_height="45dp"
+        android:layout_marginStart="8dp"
+        android:background="#54b9f0"
+        android:text="Complete"
+        android:textColor="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/Resume"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.093" />
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/parts"
@@ -110,7 +166,7 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.864" />
 
-    \
+
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/attach"
@@ -142,16 +198,26 @@
 
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/refresh"
-        android:layout_width="383dp"
+        android:layout_width="398dp"
         android:layout_height="50dp"
         android:background="#54b9f0"
         android:text="refresh"
         android:textColor="#FFFFFF"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.571"
+        app:layout_constraintHorizontal_bias="0.625"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.955" />
+        app:layout_constraintVertical_bias="0.953" />
+
+    <ListView
+        android:layout_width="393dp"
+        android:layout_height="399dp"
+        android:background="@color/white"
+        app:layout_constraintBottom_toTopOf="@+id/equipments"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/Pause"
+        app:layout_constraintVertical_bias="0.458" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
