@@ -23,6 +23,9 @@
 
     <string name="spinner">SpinnerInKotlin</string>
     <string name="selected_item">Selected item:</string>
+    <string name="_63">+63-</string>
+    <string name="_1234567890">1234567890</string>
+    <string name="get_otp">Get OTP</string>
 
     <string-array name="Languages">
         <item>Java</item>
