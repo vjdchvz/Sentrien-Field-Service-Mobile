@@ -6,13 +6,13 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 
-class Onboarding : AppCompatActivity() {
+class SplashyScreenActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_onboarding)
+        setContentView(R.layout.activity_splashyscreen)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent1 = Intent(this, MainActivity::class.java)
+            val intent1 = Intent(this, GetPinActivity::class.java)
             startActivity(intent1)
             overridePendingTransition(android.R.anim.bounce_interpolator,android.R.anim.bounce_interpolator)
 

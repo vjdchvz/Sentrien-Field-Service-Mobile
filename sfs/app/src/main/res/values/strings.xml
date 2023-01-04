@@ -14,4 +14,26 @@
     <string name="start">Start</string>
     <string name="arrive">arrive</string>
     <string name="pause">Pause</string>
+    <string name="otp_verification">Otp Verification</string>
+    <string name="OTP_verification">OTPverification</string>
+    <string name="otp_verification1">OTP Verification</string>
+    <string name="we_will_send_you_an_otp">We will send you an OTP</string>
+    <string name="enter_mobile_number">Enter Mobile Number</string>
+
+
+    <string name="spinner">SpinnerInKotlin</string>
+    <string name="selected_item">Selected item:</string>
+    <string name="_63">+63-</string>
+    <string name="_1234567890">1234567890</string>
+    <string name="get_otp">Get OTP</string>
+
+    <string-array name="Languages">
+        <item>Java</item>
+        <item>Kotlin</item>
+        <item>Swift</item>
+        <item>Python</item>
+        <item>Scala</item>
+        <item>Perl</item>
+    </string-array>
+>>>>>>> origin/develop
 </resources>
