@@ -12,7 +12,7 @@ class Onboarding : AppCompatActivity() {
         setContentView(R.layout.activity_onboarding)
 
         Handler(Looper.getMainLooper()).postDelayed({
-            val intent1 = Intent(this, MainActivity::class.java)
+            val intent1 = Intent(this, GetPin::class.java)
             startActivity(intent1)
             overridePendingTransition(android.R.anim.bounce_interpolator,android.R.anim.bounce_interpolator)
 

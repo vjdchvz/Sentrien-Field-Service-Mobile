@@ -14,4 +14,9 @@
     <string name="start">Start</string>
     <string name="arrive">arrive</string>
     <string name="pause">Pause</string>
+    <string name="otp_verification">Otp Verification</string>
+    <string name="OTP_verification">OTPverification</string>
+    <string name="otp_verification1">OTP Verification</string>
+    <string name="we_will_send_you_an_otp">We will send you an OTP</string>
+    <string name="enter_mobile_number">Enter Mobile Number</string>
 </resources>
