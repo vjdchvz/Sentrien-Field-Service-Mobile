@@ -19,4 +19,18 @@
     <string name="otp_verification1">OTP Verification</string>
     <string name="we_will_send_you_an_otp">We will send you an OTP</string>
     <string name="enter_mobile_number">Enter Mobile Number</string>
+
+
+    <string name="spinner">SpinnerInKotlin</string>
+    <string name="selected_item">Selected item:</string>
+
+    <string-array name="Languages">
+        <item>Java</item>
+        <item>Kotlin</item>
+        <item>Swift</item>
+        <item>Python</item>
+        <item>Scala</item>
+        <item>Perl</item>
+    </string-array>
+>>>>>>> origin/develop
 </resources>
