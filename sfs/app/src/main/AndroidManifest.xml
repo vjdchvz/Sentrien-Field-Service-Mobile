@@ -23,7 +23,7 @@
                 android:value="" />
         </activity>
         <activity
-            android:name=".SplashyScreenActivity"
+            android:name=".MainActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
         <activity
@@ -37,7 +37,7 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize" />
         <activity
-            android:name=".MainActivity"
+            android:name=".SplashyScreenActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
