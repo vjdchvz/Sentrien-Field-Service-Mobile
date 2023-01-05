@@ -85,7 +85,7 @@
             android:id="@+id/Pause"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="4dp"
             android:layout_weight="1"
             android:enabled="false"
             android:background="#54b9f0"
@@ -107,7 +107,7 @@
             android:id="@+id/Complete"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="4dp"
             android:layout_weight="1"
             android:enabled="false"
             android:background="#54b9f0"
@@ -126,7 +126,7 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout5">
+        app:layout_constraintBottom_toTopOf="@id/layout3">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/parts"
@@ -184,7 +184,7 @@
         android:orientation="horizontal"
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout2">
+        app:layout_constraintBottom_toTopOf="@id/layout4">
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/sign"
             android:layout_width="0dp"
@@ -246,17 +246,16 @@
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout3">
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/refresh"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="match_parent"
-        android:background="#54b9f0"
-        android:text="@string/refresh"
-        android:textColor="#FFFFFF"
-        />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/refresh"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#54b9f0"
+            android:text="@string/refresh"
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 
