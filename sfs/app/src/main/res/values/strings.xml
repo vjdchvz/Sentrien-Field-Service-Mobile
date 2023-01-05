@@ -27,13 +27,11 @@
     <string name="_1234567890">1234567890</string>
     <string name="get_otp">Get OTP</string>
 
-    <string-array name="Languages">
-        <item>Java</item>
-        <item>Kotlin</item>
-        <item>Swift</item>
-        <item>Python</item>
-        <item>Scala</item>
-        <item>Perl</item>
+    <string-array name="Jobs">
+        <item>-No Job Selected-</item>
+        <item>WORK_001</item>
+        <item>WORK_002</item>
+        <item>WORK_003</item>
     </string-array>
->>>>>>> origin/develop
+
 </resources>
