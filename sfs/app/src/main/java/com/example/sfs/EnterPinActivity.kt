@@ -2,10 +2,9 @@ package com.example.sfs
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.widget.EditText
 import android.widget.TextView
+import androidx.core.widget.doOnTextChanged
 
 
 class EnterPinActivity : AppCompatActivity() {
@@ -15,7 +14,8 @@ class EnterPinActivity : AppCompatActivity() {
         setContentView(R.layout.activity_enter_pin)
 
         val textMobile: TextView = findViewById(R.id.textMobile)
-        textMobile.text = String.format("+63-%s", intent.getStringExtra(""))
+        val mobileNumber = intent.getStringExtra("mobile")
+        textMobile.text = String.format("+63-%s", mobileNumber)
 
 
 
@@ -31,66 +31,49 @@ class EnterPinActivity : AppCompatActivity() {
         val inputCode5 = findViewById<EditText>(R.id.inputCode5)
         val inputCode6 = findViewById<EditText>(R.id.inputCode6)
 
-
-
-        inputCode1.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (s.toString().trim().isEmpty()) {
-                    inputCode2.requestFocus()
-                }
+        inputCode1.doOnTextChanged { _, _, _, count ->
+            if (count > 0) {
+                inputCode2.requestFocus()
+            } else {
+                inputCode1.text = null
             }
-
-            override fun afterTextChanged(s: Editable?) {}
-        })
-        inputCode2.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (s.toString().trim().isEmpty()) {
-                    inputCode3.requestFocus()
-                }
+        }
+        inputCode2.doOnTextChanged { _, _, _, count ->
+            if (count > 0) {
+                inputCode3.requestFocus()
+            } else {
+                inputCode1.requestFocus()
             }
-
-            override fun afterTextChanged(s: Editable?) {}
-        })
-        inputCode3.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (s.toString().trim().isEmpty()) {
-                    inputCode4.requestFocus()
-                }
+        }
+        inputCode3.doOnTextChanged { _, _, _, count ->
+            if (count > 0) {
+                inputCode4.requestFocus()
+            } else {
+                inputCode2.requestFocus()
             }
-
-            override fun afterTextChanged(s: Editable?) {}
-        })
-        inputCode4.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (s.toString().trim().isEmpty()) {
-                    inputCode5.requestFocus()
-                }
+        }
+        inputCode4.doOnTextChanged { _, _, _, count ->
+            if (count > 0) {
+                inputCode5.requestFocus()
+            } else {
+                inputCode3.requestFocus()
             }
-
-            override fun afterTextChanged(s: Editable?) {}
-        })
-        inputCode5.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                if (s.toString().trim().isEmpty()) {
-                    inputCode6.requestFocus()
-                }
+        }
+        inputCode5.doOnTextChanged { _, _, _, count ->
+            if (count > 0) {
+                inputCode6.requestFocus()
+            } else {
+                inputCode4.requestFocus()
             }
-
-            override fun afterTextChanged(s: Editable?) {}
-        })
-
-
-
+        }
+        inputCode6.doOnTextChanged { _, _, _, count ->
+            if (count > 0) {
+                // Do nothing
+            } else {
+                inputCode5.requestFocus()
+            }
+        }
     }
+
 }
 
