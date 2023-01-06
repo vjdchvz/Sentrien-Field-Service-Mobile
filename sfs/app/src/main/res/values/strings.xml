@@ -26,6 +26,10 @@
     <string name="_63">+63-</string>
     <string name="_1234567890">1234567890</string>
     <string name="get_otp">Get OTP</string>
+    <string name="enter_the_otp_sent_to">Enter the OTP sent to</string>
+    <string name="didn_t_receive_the_otp">Didn\'t receive the OTP?</string>
+    <string name="resend_otp">RESEND OTP</string>
+    <string name="verify">VERIFY</string>
 
     <string-array name="Languages">
         <item>Java</item>
@@ -35,5 +39,5 @@
         <item>Scala</item>
         <item>Perl</item>
     </string-array>
->>>>>>> origin/develop
+
 </resources>
