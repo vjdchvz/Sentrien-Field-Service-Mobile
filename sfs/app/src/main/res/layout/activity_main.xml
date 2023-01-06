@@ -38,12 +38,11 @@
 
         <ImageButton
             android:id="@+id/menu"
-            android:layout_width="match_parent"
+            android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_marginStart="12dp"
             android:src="@drawable/menu_icon"
             android:scaleType="fitStart"
-            android:layout_gravity="right"
             android:background="@color/white"
             />
 
