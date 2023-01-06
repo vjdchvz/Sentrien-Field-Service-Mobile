@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "438644833920",
+    "project_id": "sentrien-otp-verification",
+    "storage_bucket": "sentrien-otp-verification.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:438644833920:android:f094814fbcef0a8befb065",
+        "android_client_info": {
+          "package_name": "com.example.sfs"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "438644833920-aqhk3jpuk4nr1sgl582omc7gtu30nhrb.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sfs",
+            "certificate_hash": "781caa660701820854fa12a138e0e36269bee07e"
+          }
+        },
+        {
+          "client_id": "438644833920-888ch0cjk4lqpsratuckep42kn6u3gu2.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCjO3pwpBMFxeJBCKtdlz5CKEpKC42WkQw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "438644833920-888ch0cjk4lqpsratuckep42kn6u3gu2.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
