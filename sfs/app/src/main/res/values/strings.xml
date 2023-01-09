@@ -31,13 +31,11 @@
     <string name="resend_otp">RESEND OTP</string>
     <string name="verify">VERIFY</string>
 
-    <string-array name="Languages">
-        <item>Java</item>
-        <item>Kotlin</item>
-        <item>Swift</item>
-        <item>Python</item>
-        <item>Scala</item>
-        <item>Perl</item>
+    <string-array name="Jobs">
+        <item>-No Job Selected-</item>
+        <item>WORK_001</item>
+        <item>WORK_002</item>
+        <item>WORK_003</item>
     </string-array>
 
 </resources>

@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".SettingsActivity"
+    android:background="#e3e3e3">
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:background="#FFFF"
+        android:orientation="horizontal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="8dp">
+
+    <ImageButton
+        android:id="@+id/backbutton"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:src="@drawable/logo_sfssmall"
+        android:scaleType="fitStart"
+        android:background="@color/white"/>
+
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/layout2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="12dp"
+
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar">
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/empID"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="15dp"
+            android:background="#54b9f0"
+            android:textColor="#000000"
+            android:textAlignment="textStart"
+            android:backgroundTint="#ebebeb"
+            android:elevation="20dp"
+            android:textSize="18sp"
+            android:text="NS Employee ID"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/truckID"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:background="#54b9f0"
+            android:textColor="#000000"
+            android:textAlignment="textStart"
+            android:backgroundTint="#ebebeb"
+            android:elevation="20dp"
+            android:textSize="18sp"
+            android:text="NS Truck ID"
+            />
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/licensekey"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:layout_marginTop="5dp"
+            android:background="#54b9f0"
+            android:textColor="#000000"
+            android:textAlignment="textStart"
+            android:backgroundTint="#ebebeb"
+            android:elevation="20dp"
+            android:textSize="18sp"
+            android:text="License Key"
+            />
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/test"
+        android:layout_width="wrap_content"
+        android:layout_height="100dp"
+        android:text="sample"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

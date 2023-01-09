@@ -7,45 +7,44 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="70dp"
+        android:layout_height="60dp"
         android:background="#FFFF"
         android:orientation="horizontal"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" >
+        app:layout_constraintTop_toTopOf="parent"
+        android:elevation="8dp">
 
     <ImageButton
         android:id="@+id/backbutton"
-        android:layout_width="250dp"
-        android:layout_height="80dp"
-
-        android:layout_marginStart="0dp"
-        android:src="@drawable/untitled"
+        android:layout_width="300dp"
+        android:layout_height="40dp"
+        android:src="@drawable/logo_sfssmall"
         android:scaleType="fitStart"
         android:background="@color/white"/>
 
         <ImageButton
             android:id="@+id/history"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginStart="12dp"
-            android:src="@drawable/histroy_icon"
+            android:src="@drawable/history_icon"
             android:scaleType="fitStart"
             android:background="@color/white"/>
 
         <ImageButton
             android:id="@+id/menu"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
             android:layout_marginStart="12dp"
             android:src="@drawable/menu_icon"
             android:scaleType="fitStart"
-            android:background="@color/white"/>
+            android:background="@color/white"
+            />
 
     </androidx.appcompat.widget.Toolbar>
 
@@ -65,6 +64,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="4dp"
             android:layout_weight="1"
+            android:enabled="false"
             android:background="#54b9f0"
             android:text="@string/start"
             android:textColor="#FFFFFF" />
@@ -75,6 +75,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="4dp"
             android:layout_weight="1"
+            android:enabled="false"
             android:background="#54b9f0"
             android:text="@string/arrive"
             android:textColor="#FFFFFF" />
@@ -83,8 +84,9 @@
             android:id="@+id/Pause"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="4dp"
             android:layout_weight="1"
+            android:enabled="false"
             android:background="#54b9f0"
             android:text="@string/pause"
             android:textColor="#FFFFFF" />
@@ -95,6 +97,7 @@
             android:layout_height="match_parent"
             android:layout_marginStart="4dp"
             android:layout_weight="1"
+            android:enabled="false"
             android:background="#54b9f0"
             android:text="@string/resume"
             android:textColor="#FFFFFF" />
@@ -103,8 +106,9 @@
             android:id="@+id/Complete"
             android:layout_width="0dp"
             android:layout_height="match_parent"
-            android:layout_marginStart="8dp"
+            android:layout_marginStart="4dp"
             android:layout_weight="1"
+            android:enabled="false"
             android:background="#54b9f0"
             android:text="@string/complete"
             android:textColor="#FFFFFF" />
@@ -121,13 +125,14 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/layout5">
+        app:layout_constraintBottom_toTopOf="@id/layout3">
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/parts"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:enabled="false"
             android:layout_marginStart="8dp"
             android:background="#54b9f0"
             android:text="@string/parts"
@@ -139,6 +144,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:enabled="false"
             android:layout_marginStart="8dp"
             android:background="#54b9f0"
             android:text="@string/equipment"
@@ -150,6 +156,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:enabled="false"
             android:layout_marginStart="8dp"
             android:background="#54b9f0"
             android:text="@string/expenses"
@@ -161,6 +168,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:enabled="false"
             android:layout_marginStart="8dp"
             android:background="#54b9f0"
             android:text="@string/labor"
@@ -175,12 +183,13 @@
         android:orientation="horizontal"
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout2">
+        app:layout_constraintBottom_toTopOf="@id/layout4">
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/sign"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:enabled="false"
             android:layout_marginStart="8dp"
             android:background="#54b9f0"
             android:text="@string/signature"
@@ -192,6 +201,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:enabled="false"
             android:layout_marginStart="8dp"
             android:background="#54b9f0"
             android:text="@string/camera"
@@ -204,6 +214,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:enabled="false"
             android:layout_marginStart="8dp"
             android:background="#54b9f0"
             android:text="@string/attached_files"
@@ -215,6 +226,7 @@
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_weight="1"
+            android:enabled="false"
             android:layout_marginStart="8dp"
             android:background="#54b9f0"
             android:text="@string/cached_n_0"
@@ -233,17 +245,16 @@
         android:padding="12dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/layout3">
+        app:layout_constraintBottom_toBottomOf="parent">
 
-    <androidx.appcompat.widget.AppCompatButton
-        android:id="@+id/refresh"
-        android:layout_width="0dp"
-        android:layout_weight="1"
-        android:layout_height="match_parent"
-        android:background="#54b9f0"
-        android:text="@string/refresh"
-        android:textColor="#FFFFFF"
-        />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/refresh"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:background="#54b9f0"
+            android:text="@string/refresh"
+            android:textColor="#FFFFFF" />
 
     </LinearLayout>
 
@@ -260,182 +271,468 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/layout1">
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_marginTop="15dp">
         <TextView
             android:id="@+id/look"
-            android:layout_width="220dp"
-            android:layout_height="wrap_content"
+            android:layout_width="150dp"
+            android:layout_height="match_parent"
             android:layout_marginStart="8dp"
-            android:layout_marginTop="15dp"
             android:text="LOOKUP"
             android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
+    <Spinner
+        android:id="@+id/spinner"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:theme="@style/Theme.AppCompat.DayNight" />
+
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
         <TextView
             android:id="@+id/jobnumber"
-            android:layout_width="220dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="15dp"
             android:text="JOB NUMBER"
             android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
+        <TextView
+            android:id="@+id/jobnumber_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginEnd="10dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:background="#d4d4d4"/>
+    </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
         <TextView
             android:id="@+id/jobstatus"
-            android:layout_width="220dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="5dp"
             android:text="JOB STATUS"
             android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/jobstatus_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:background="#d4d4d4"/>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
             android:id="@+id/techstatus"
-            android:layout_width="220dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="5dp"
             android:text="TECH STATUS"
             android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/techstatus_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:background="#d4d4d4"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
             android:id="@+id/lead"
-            android:layout_width="220dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="5dp"
             android:text="JOB LEAD"
             android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/lead_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:background="#d4d4d4"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
             android:id="@+id/task"
-            android:layout_width="220dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="5dp"
             android:text="TASK"
             android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/task_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:background="#d4d4d4"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
             android:id="@+id/schedstart"
-            android:layout_width="220dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="5dp"
             android:text="SCHED. START DATE"
             android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/schedstart_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:background="#d4d4d4"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
             android:id="@+id/schedduration"
-            android:layout_width="220dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="5dp"
             android:text="SCHED. DURATION"
             android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/schedduration_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:background="#d4d4d4"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
             android:id="@+id/startdate"
-            android:layout_width="220dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="5dp"
             android:text="START DATE"
             android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/startdate_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:background="#d4d4d4"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
             android:id="@+id/enddate"
-            android:layout_width="220dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="5dp"
             android:text="END DATE"
             android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/enddate_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:background="#d4d4d4"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
             android:id="@+id/resumedate"
-            android:layout_width="220dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="5dp"
             android:text="RESUME DATE"
             android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
-
+        <TextView
+            android:id="@+id/resumedate_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:background="#d4d4d4"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
         <TextView
             android:id="@+id/hqnotes"
-            android:layout_width="220dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="5dp"
             android:text="HQ NOTES"
             android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/hqnotes_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:background="#d4d4d4"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
             android:id="@+id/timenotes"
-            android:layout_width="220dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="5dp"
             android:text="TIME NOTES"
             android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/timenotes_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:background="#d4d4d4"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
             android:id="@+id/mileage"
-            android:layout_width="220dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="5dp"
             android:text="MILEAGE"
             android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/mileage_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:background="#d4d4d4"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
             android:id="@+id/fieldnotes"
-            android:layout_width="220dp"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="5dp"
             android:text="FIELD NOTES"
             android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/recommendations"
-            android:layout_width="220dp"
+            android:id="@+id/fieldnotes_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginStart="8dp"
             android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:background="#d4d4d4"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:id="@+id/recommendations"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
             android:text="RECOMMENDATIONS"
             android:textColor="@color/black"
-            android:textSize="12sp"
+            android:textSize="15sp"
             android:textStyle="bold" />
+        <TextView
+            android:id="@+id/recommendations_content"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="5dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="20dp"
+            android:text=""
+            android:textColor="@color/black"
+            android:textSize="15sp"
+            android:textStyle="bold"
+            android:background="#d4d4d4"/>
+    </LinearLayout>
 
     </LinearLayout>
 
