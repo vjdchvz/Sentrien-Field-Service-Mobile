@@ -1,11 +1,13 @@
 package com.example.sfs
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.Editable
+import android.text.TextWatcher
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
-import androidx.core.widget.doOnTextChanged
-
 
 class EnterPinActivity : AppCompatActivity() {
 
@@ -17,10 +19,12 @@ class EnterPinActivity : AppCompatActivity() {
         val mobileNumber = intent.getStringExtra("mobile")
         textMobile.text = String.format("+63-%s", mobileNumber)
 
-
-
+        val buttonVerify: Button = findViewById(R.id.buttonVerify)
+        buttonVerify.setOnClickListener {
+            val mainIntent = Intent(this, MainActivity::class.java)
+            startActivity(mainIntent)
+        }
         setupOTPInputs()
-
     }
 
     private fun setupOTPInputs() {
@@ -31,49 +35,51 @@ class EnterPinActivity : AppCompatActivity() {
         val inputCode5 = findViewById<EditText>(R.id.inputCode5)
         val inputCode6 = findViewById<EditText>(R.id.inputCode6)
 
-        inputCode1.doOnTextChanged { _, _, _, count ->
-            if (count > 0) {
-                inputCode2.requestFocus()
-            } else {
-                inputCode1.text = null
+        val textWatcher = object : TextWatcher {
+            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
+
+            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
+                val currentField = currentFocus
+                if (currentField is EditText) {
+                    if (count > 0) {
+                        // User entered a character
+                        val nextField = when (currentField.id) {
+                            R.id.inputCode1 -> inputCode2
+                            R.id.inputCode2 -> inputCode3
+                            R.id.inputCode3 -> inputCode4
+                            R.id.inputCode4 -> inputCode5
+                            R.id.inputCode5 -> inputCode6
+                            else -> null
+                        }
+                        nextField?.requestFocus()
+                    }
+                }
+            }
+
+            override fun afterTextChanged(s: Editable?) {
+                if (s.isNullOrEmpty()) {
+                    val currentField = currentFocus
+                    if (currentField is EditText) {
+                        val previousField = when (currentField.id) {
+                            R.id.inputCode2 -> inputCode1
+                            R.id.inputCode3 -> inputCode2
+                            R.id.inputCode4 -> inputCode3
+                            R.id.inputCode5 -> inputCode4
+                            R.id.inputCode6 -> inputCode5
+                            else -> null
+                        }
+                        previousField?.requestFocus()
+                    }
+                }
             }
         }
-        inputCode2.doOnTextChanged { _, _, _, count ->
-            if (count > 0) {
-                inputCode3.requestFocus()
-            } else {
-                inputCode1.requestFocus()
-            }
-        }
-        inputCode3.doOnTextChanged { _, _, _, count ->
-            if (count > 0) {
-                inputCode4.requestFocus()
-            } else {
-                inputCode2.requestFocus()
-            }
-        }
-        inputCode4.doOnTextChanged { _, _, _, count ->
-            if (count > 0) {
-                inputCode5.requestFocus()
-            } else {
-                inputCode3.requestFocus()
-            }
-        }
-        inputCode5.doOnTextChanged { _, _, _, count ->
-            if (count > 0) {
-                inputCode6.requestFocus()
-            } else {
-                inputCode4.requestFocus()
-            }
-        }
-        inputCode6.doOnTextChanged { _, _, _, count ->
-            if (count > 0) {
-                // Do nothing
-            } else {
-                inputCode5.requestFocus()
-            }
-        }
+
+        inputCode1.addTextChangedListener(textWatcher)
+        inputCode2.addTextChangedListener(textWatcher)
+        inputCode3.addTextChangedListener(textWatcher)
+        inputCode4.addTextChangedListener(textWatcher)
+        inputCode5.addTextChangedListener(textWatcher)
+        inputCode6.addTextChangedListener(textWatcher)
     }
 
 }
-

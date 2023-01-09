@@ -21,10 +21,7 @@ class SplashyScreenActivity : AppCompatActivity() {
                 withContext(Dispatchers.Main) {
                     val intent1 = Intent(this@SplashyScreenActivity, GetPinActivity::class.java)
                     startActivity(intent1)
-                    overridePendingTransition(
-                        android.R.anim.bounce_interpolator,
-                        android.R.anim.bounce_interpolator
-                    )
+
                     finish()
                 }
             }
