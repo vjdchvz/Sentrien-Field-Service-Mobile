@@ -53,7 +53,6 @@ class EnterPinActivity : AppCompatActivity() {
                         }
                         nextField?.requestFocus()
                     }
-
                 }
             }
 
@@ -73,27 +72,6 @@ class EnterPinActivity : AppCompatActivity() {
                     }
                 }
             }
-
-                }
-            }
-
-            override fun afterTextChanged(s: Editable?) {
-                if (s.isNullOrEmpty()) {
-                    val currentField = currentFocus
-                    if (currentField is EditText) {
-                        val previousField = when (currentField.id) {
-                            R.id.inputCode2 -> inputCode1
-                            R.id.inputCode3 -> inputCode2
-                            R.id.inputCode4 -> inputCode3
-                            R.id.inputCode5 -> inputCode4
-                            R.id.inputCode6 -> inputCode5
-                            else -> null
-                        }
-                        previousField?.requestFocus()
-                    }
-                }
-            }
-
         }
 
         inputCode1.addTextChangedListener(textWatcher)
@@ -104,8 +82,4 @@ class EnterPinActivity : AppCompatActivity() {
         inputCode6.addTextChangedListener(textWatcher)
     }
 
-
 }
-
-}
-
