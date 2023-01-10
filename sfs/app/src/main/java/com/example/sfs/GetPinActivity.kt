@@ -7,6 +7,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
+import com.google.firebase.FirebaseApp
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
@@ -14,6 +15,7 @@ import java.util.concurrent.TimeUnit
 
 class GetPinActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
+        FirebaseApp.initializeApp(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_get_pin)
 
@@ -48,14 +50,15 @@ class GetPinActivity : AppCompatActivity() {
                             verificationId: String,
                             token: PhoneAuthProvider.ForceResendingToken
                         ) {
-                            // verification code sent
-                            // You can use the verificationId and the token to allow the user to input the code and resend the code if necessary
+                            // Store the verification ID and resending token so we can use them later
                             val intent = Intent(this@GetPinActivity, EnterPinActivity::class.java)
                             intent.putExtra("verificationId", verificationId)
                             intent.putExtra("token", token)
-                            intent.putExtra("mobile", mobileNumber) // Pass the phone number in an extra
+                            intent.putExtra("mobile", mobileNumber)
                             startActivity(intent)
+                            finish()
                         }
+
                     }
                 )
             } else {
