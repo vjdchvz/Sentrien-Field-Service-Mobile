@@ -23,8 +23,8 @@ class SplashyScreenActivity : AppCompatActivity() {
                 // heavy initialization tasks or network requests here
 
                 withContext(Dispatchers.Main) {
-                    val intent1 = Intent(this@SplashyScreenActivity, GetPinActivity::class.java)
-                    startActivity(intent1)
+                    val intent2 = Intent(this@SplashyScreenActivity, GetPinActivity::class.java)
+                    startActivity(intent2)
 
 
                     finish()
