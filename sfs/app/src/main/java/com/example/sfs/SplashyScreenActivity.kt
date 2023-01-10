@@ -16,6 +16,7 @@ class SplashyScreenActivity : AppCompatActivity() {
 
         Handler(Looper.getMainLooper()).postDelayed({
 
+
             val intent1 = Intent(this, GetPinActivity::class.java)
             startActivity(intent1)
 
@@ -25,6 +26,15 @@ class SplashyScreenActivity : AppCompatActivity() {
                 withContext(Dispatchers.Main) {
                     val intent2 = Intent(this@SplashyScreenActivity, GetPinActivity::class.java)
                     startActivity(intent2)
+
+
+
+            GlobalScope.launch(Dispatchers.IO) {
+                // heavy initialization tasks or network requests here
+
+                withContext(Dispatchers.Main) {
+                    val intent1 = Intent(this@SplashyScreenActivity, GetPinActivity::class.java)
+                    startActivity(intent1)
 
 
                     finish()
