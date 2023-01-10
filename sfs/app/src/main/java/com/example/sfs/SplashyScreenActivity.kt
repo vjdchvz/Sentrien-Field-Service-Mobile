@@ -14,7 +14,6 @@ class SplashyScreenActivity : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             val intent1 = Intent(this, GetPinActivity::class.java)
             startActivity(intent1)
-            overridePendingTransition(android.R.anim.bounce_interpolator,android.R.anim.bounce_interpolator)
 
             // to get rid of this when u push the back button
             finish()
