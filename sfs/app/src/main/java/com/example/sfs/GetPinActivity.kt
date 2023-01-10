@@ -3,6 +3,7 @@ package com.example.sfs
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -21,10 +22,11 @@ class GetPinActivity : AppCompatActivity() {
 
         buttonGetOTP.setOnClickListener {
             val inputMobile = findViewById<EditText>(R.id.inputNum)
-            val mobileNumber = inputMobile.text.toString()
+            var mobileNumber = inputMobile.text.toString()
             if (mobileNumber.isEmpty()) {
                 Toast.makeText(this, "Please input your number", Toast.LENGTH_SHORT).show()
-            } else if (mobileNumber.length == 10 && mobileNumber[0] == '9') {
+            } else if (mobileNumber.isNotEmpty()){
+                mobileNumber = "+63" + mobileNumber.substring(1)
                 // Request a verification code for the specified phone number
                 PhoneAuthProvider.getInstance().verifyPhoneNumber(
                     mobileNumber,
@@ -39,6 +41,7 @@ class GetPinActivity : AppCompatActivity() {
 
                         override fun onVerificationFailed(e: FirebaseException) {
                             // verification failed
+                            Log.e("PhoneAuth", "Verification failed", e)
                         }
 
                         override fun onCodeSent(
