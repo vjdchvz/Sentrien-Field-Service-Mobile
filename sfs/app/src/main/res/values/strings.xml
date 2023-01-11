@@ -30,6 +30,8 @@
     <string name="didn_t_receive_the_otp">Didn\'t receive the OTP?</string>
     <string name="resend_otp">RESEND OTP</string>
     <string name="verify">VERIFY</string>
+    <string name="_09123457890">09123457890</string>
+    <string name="_9875432109">9875432109</string>
 
     <string-array name="Jobs">
         <item>-No Job Selected-</item>

@@ -74,7 +74,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:background="@null"
-                android:hint="@string/_1234567890"
+                android:hint="@string/_9875432109"
                 android:imeOptions="actionDone"
                 android:importantForAutofill="no"
                 android:inputType="number"
@@ -82,7 +82,7 @@
                 android:textColorHint="#808080"
                 android:textSize="16sp"
                 android:textStyle="bold"/>
-                android:textStyle="bold" />
+
 
         </LinearLayout>
 

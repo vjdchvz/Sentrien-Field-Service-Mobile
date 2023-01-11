@@ -23,12 +23,19 @@ class GetPinActivity : AppCompatActivity() {
         val buttonGetOTP: Button = findViewById(R.id.buttonGetOTP)
 
         buttonGetOTP.setOnClickListener {
+            // this disabled the recaptcha from showing
+           // FirebaseAuth.getInstance().firebaseAuthSettings.setAppVerificationDisabledForTesting(true)
             val inputMobile = findViewById<EditText>(R.id.inputNum)
             var mobileNumber = inputMobile.text.toString()
             if (mobileNumber.isEmpty()) {
                 Toast.makeText(this, "Please input your number", Toast.LENGTH_SHORT).show()
-            } else if (mobileNumber.isNotEmpty()){
-                mobileNumber = "+63" + mobileNumber.substring(1)
+            } else if (mobileNumber.length != 10) {
+                Toast.makeText(this, "Number should be equal to 10 digits", Toast.LENGTH_SHORT).show()
+            } else if (mobileNumber[0] != '9') {
+                Toast.makeText(this, "Number should start with 9", Toast.LENGTH_SHORT).show()
+            } else {
+                mobileNumber = "+63$mobileNumber"
+
                 // Request a verification code for the specified phone number
                 PhoneAuthProvider.getInstance().verifyPhoneNumber(
                     mobileNumber,
@@ -44,7 +51,10 @@ class GetPinActivity : AppCompatActivity() {
                         override fun onVerificationFailed(e: FirebaseException) {
                             // verification failed
                             Log.e("PhoneAuth", "Verification failed", e)
+                            Toast.makeText(this@GetPinActivity, e.message, Toast.LENGTH_SHORT).show()
                         }
+
+
 
                         override fun onCodeSent(
                             verificationId: String,
@@ -57,16 +67,10 @@ class GetPinActivity : AppCompatActivity() {
                             intent.putExtra("mobile", mobileNumber)
                             startActivity(intent)
                             finish()
+                            Toast.makeText(this@GetPinActivity, "OTP sent successfully", Toast.LENGTH_SHORT).show()
                         }
-
                     }
                 )
-            } else {
-                Toast.makeText(
-                    this,
-                    "Incorrect number of digits or first digit is not '9'",
-                    Toast.LENGTH_SHORT
-                ).show()
             }
         }
     }
