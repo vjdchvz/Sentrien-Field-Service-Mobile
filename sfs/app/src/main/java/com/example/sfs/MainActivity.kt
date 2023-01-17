@@ -12,6 +12,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
+
         val settingButton = findViewById<View>(R.id.menu) as ImageButton
         settingButton.setOnClickListener {
             startActivity(Intent(this@MainActivity, SettingsActivity::class.java))

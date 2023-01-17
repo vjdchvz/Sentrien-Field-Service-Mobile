@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import android.widget.Button
 import android.widget.EditText
 import android.widget.Toast
@@ -12,6 +13,9 @@ import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import java.util.concurrent.TimeUnit
+import android.webkit.WebView
+import android.webkit.WebViewClient
+
 
 class GetPinActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,11 +24,23 @@ class GetPinActivity : AppCompatActivity() {
         setContentView(R.layout.activity_get_pin)
 
 
+
+        val webView = findViewById<WebView>(R.id.webView)
+        webView.webViewClient = object : WebViewClient() {
+            override fun onPageFinished(view: WebView, url: String) {
+                super.onPageFinished(view, url)
+                // hide the WebView when the page finishes loading
+                webView.visibility = View.GONE
+            }
+        }
+
+
+
         val buttonGetOTP: Button = findViewById(R.id.buttonGetOTP)
 
         buttonGetOTP.setOnClickListener {
             // this disabled the recaptcha from showing
-           // FirebaseAuth.getInstance().firebaseAuthSettings.setAppVerificationDisabledForTesting(true)
+            // FirebaseAuth.getInstance().firebaseAuthSettings.setAppVerificationDisabledForTesting(true)
             val inputMobile = findViewById<EditText>(R.id.inputNum)
             var mobileNumber = inputMobile.text.toString()
             if (mobileNumber.isEmpty()) {
@@ -51,9 +67,9 @@ class GetPinActivity : AppCompatActivity() {
                         override fun onVerificationFailed(e: FirebaseException) {
                             // verification failed
                             Log.e("PhoneAuth", "Verification failed", e)
-                            Toast.makeText(this@GetPinActivity, e.message, Toast.LENGTH_SHORT).show()
+                            Toast.makeText(this@GetPinActivity, e.message, Toast.LENGTH_SHORT)
+                                .show()
                         }
-
 
 
                         override fun onCodeSent(
@@ -67,11 +83,32 @@ class GetPinActivity : AppCompatActivity() {
                             intent.putExtra("mobile", mobileNumber)
                             startActivity(intent)
                             finish()
-                            Toast.makeText(this@GetPinActivity, "OTP sent successfully", Toast.LENGTH_SHORT).show()
+                            Toast.makeText(
+                                this@GetPinActivity,
+                                "OTP sent successfully",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            webView.visibility = View.VISIBLE
+                            webView.webViewClient = object : WebViewClient() {
+                                override fun onPageFinished(view: WebView, url: String) {
+                                    super.onPageFinished(view, url)
+                                    // check if the reCAPTCHA page is loaded
+                                    if (url.contains("google.com/recaptcha")) {
+                                        // hide the loading spinner and show the WebView
+                                        webView.visibility = View.GONE
+                                    }
+                                }
+                            }
+
+                            webView.loadUrl("https://example.com/recaptcha")
                         }
-                    }
-                )
+                    } )
+                }
             }
         }
     }
-}
+
+
+
+
+

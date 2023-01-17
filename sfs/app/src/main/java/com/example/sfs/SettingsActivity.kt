@@ -17,7 +17,7 @@ class SettingsActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
 
-        val backButton = findViewById<View>(R.id.backbutton) as ImageButton
+        val backButton = findViewById<View>(R.id.BackButton) as ImageButton
         backButton.setOnClickListener {
             startActivity(Intent(this@SettingsActivity, MainActivity::class.java))
 
