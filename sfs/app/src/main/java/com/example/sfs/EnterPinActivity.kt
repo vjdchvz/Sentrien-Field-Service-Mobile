@@ -60,26 +60,22 @@ class EnterPinActivity : AppCompatActivity() {
         mobileNumber = intent.getStringExtra("mobile")
 
         val textMobile: TextView = findViewById(R.id.textMobile)
-        textMobile.text = String.format("The number you input", mobileNumber)
+        textMobile.text = String.format("The number you input %s", mobileNumber)
         auth = FirebaseAuth.getInstance()
 
         val buttonResendOTP = findViewById<Button>(R.id.textResendOTP)
         buttonResendOTP.setOnClickListener {
 
-            val progressBar = findViewById<ProgressBar>(R.id.progressBar2)
-            val buttonVerify = findViewById<Button>(R.id.buttonVerify)
-
-            progressBar.visibility = View.VISIBLE
-            buttonVerify.visibility =View.INVISIBLE
-
-            PhoneAuthProvider.getInstance().verifyPhoneNumber(
-                "+63$mobileNumber", // Phone number to verify
-                60, // Timeout duration
-                TimeUnit.SECONDS, // Unit of timeout
-                this, // Activity (for callback binding)
-                callbacks, // OnVerificationStateChangedCallbacks
-                resendToken // token for resending the verification code
-            )
+            if (resendToken != null) {
+                PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                    "+63$mobileNumber", // Phone number to verify
+                    60, // Timeout duration
+                    TimeUnit.SECONDS, // Unit of timeout
+                    this, // Activity (for callback binding)
+                    callbacks, // OnVerificationStateChangedCallbacks
+                    resendToken // token for resending the verification code
+                )
+            }
         }
 
 

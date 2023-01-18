@@ -8,7 +8,10 @@
     tools:context=".GetPinActivity"
     android:background="@color/white">
 
-
+<LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:gravity="center">
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
@@ -76,6 +79,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="40dp"
                 android:background="@null"
+                android:textCursorDrawable="@null"
                 android:hint="@string/_9875432109"
                 android:imeOptions="actionDone"
                 android:importantForAutofill="no"
@@ -121,5 +125,5 @@
 
 
     </androidx.appcompat.widget.LinearLayoutCompat>
-
+</LinearLayout>
 </ScrollView>

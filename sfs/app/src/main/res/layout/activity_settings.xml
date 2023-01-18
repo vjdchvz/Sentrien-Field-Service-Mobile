@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SettingsActivity"
-    android:background="#e3e3e3">
+    android:background="@color/white">
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
@@ -35,7 +35,6 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:padding="12dp"
-
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/toolbar">
@@ -49,11 +48,16 @@
             android:background="#54b9f0"
             android:textColor="#000000"
             android:textAlignment="textStart"
-            android:backgroundTint="#ebebeb"
+            android:backgroundTint="@color/white"
             android:elevation="20dp"
             android:textSize="18sp"
-            android:text="NS Employee ID"
+            android:text="@string/ns_employee_id"
             />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#ACD9E6" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/truckID"
@@ -64,11 +68,16 @@
             android:background="#54b9f0"
             android:textColor="#000000"
             android:textAlignment="textStart"
-            android:backgroundTint="#ebebeb"
+            android:backgroundTint="@color/white"
             android:elevation="20dp"
             android:textSize="18sp"
-            android:text="NS Truck ID"
+            android:text="@string/ns_truck_id"
             />
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#ACD9E6" />
 
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/licensekey"
@@ -79,12 +88,55 @@
             android:background="#54b9f0"
             android:textColor="#000000"
             android:textAlignment="textStart"
-            android:backgroundTint="#ebebeb"
+            android:backgroundTint="@color/white"
             android:elevation="20dp"
             android:textSize="18sp"
-            android:text="License Key"
+            android:text="@string/license_key"
             />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="#ACD9E6" />
 
     </LinearLayout>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/sync"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:layout_margin="8dp"
+        android:background="@drawable/background_button"
+        android:backgroundTint="@color/blue_button"
+        android:elevation="20dp"
+        android:text="sync"
+        android:textAlignment="center"
+        android:textColor="#000000"
+        android:textSize="18sp"
+        app:layout_constraintHeight_min="5dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/layout2" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toTopOf="@+id/textView"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+
+        android:layout_height="40dp"
+        android:padding="6dp"
+        android:textColor="@color/black"
+        android:background="@color/white"
+        android:text="@string/version_4_0_6"
+        android:gravity="bottom"
+        android:elevation="8dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

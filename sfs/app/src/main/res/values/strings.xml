@@ -51,6 +51,10 @@
     <string name="mileage">MILEAGE</string>
     <string name="field_notes">FIELD NOTES</string>
     <string name="recommendations">RECOMMENDATIONS</string>
+    <string name="version_4_0_6">Version 4.0.6</string>
+    <string name="ns_employee_id">NS Employee ID</string>
+    <string name="ns_truck_id">NS Truck ID</string>
+    <string name="license_key">License Key</string>
 
     <string-array name="Jobs">
         <item>-No Job Selected-</item>
