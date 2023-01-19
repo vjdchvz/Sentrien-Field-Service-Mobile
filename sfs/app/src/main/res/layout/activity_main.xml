@@ -113,7 +113,6 @@
             android:layout_height="match_parent"
             android:layout_marginStart="4dp"
             android:layout_weight="1"
-            android:textSize="13sp"
             android:enabled="false"
             android:background="@drawable/custom_background"
             android:text="@string/complete"
