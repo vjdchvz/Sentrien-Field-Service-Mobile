@@ -3,18 +3,19 @@ package com.example.sfs
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.text.InputFilter
 import android.util.Log
 import android.view.View
 import android.widget.Button
 import android.widget.EditText
+import android.widget.ProgressBar
 import android.widget.Toast
 import com.google.firebase.FirebaseApp
 import com.google.firebase.FirebaseException
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthProvider
 import java.util.concurrent.TimeUnit
-import android.webkit.WebView
-import android.webkit.WebViewClient
+
 
 
 class GetPinActivity : AppCompatActivity() {
@@ -22,32 +23,33 @@ class GetPinActivity : AppCompatActivity() {
         FirebaseApp.initializeApp(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_get_pin)
+        val inputMobile = findViewById<EditText>(R.id.inputNum)
+        //max 10 numbers can be input
+        inputMobile.filters = arrayOf<InputFilter>(InputFilter.LengthFilter(10))
 
 
-
-        val webView = findViewById<WebView>(R.id.webView)
-        webView.webViewClient = object : WebViewClient() {
-            override fun onPageFinished(view: WebView, url: String) {
-                super.onPageFinished(view, url)
-                // hide the WebView when the page finishes loading
-                webView.visibility = View.GONE
-            }
-        }
-
-
-
-        val buttonGetOTP: Button = findViewById(R.id.buttonGetOTP)
+        val buttonGetOTP = findViewById<Button>(R.id.buttonGetOT)
 
         buttonGetOTP.setOnClickListener {
             // this disabled the recaptcha from showing
             // FirebaseAuth.getInstance().firebaseAuthSettings.setAppVerificationDisabledForTesting(true)
-            val inputMobile = findViewById<EditText>(R.id.inputNum)
+
             var mobileNumber = inputMobile.text.toString()
+            val progressBar = findViewById<ProgressBar>(R.id.progressBar)
+            progressBar.visibility = View.VISIBLE
+            buttonGetOTP.visibility =View.INVISIBLE
             if (mobileNumber.isEmpty()) {
+                progressBar.visibility = View.INVISIBLE
+                buttonGetOTP.visibility =View.VISIBLE
                 Toast.makeText(this, "Please input your number", Toast.LENGTH_SHORT).show()
             } else if (mobileNumber.length != 10) {
-                Toast.makeText(this, "Number should be equal to 10 digits", Toast.LENGTH_SHORT).show()
+                progressBar.visibility = View.INVISIBLE
+                buttonGetOTP.visibility =View.VISIBLE
+                Toast.makeText(this, "Number should be equal to 10 digits", Toast.LENGTH_SHORT)
+                    .show()
             } else if (mobileNumber[0] != '9') {
+                progressBar.visibility = View.INVISIBLE
+                buttonGetOTP.visibility =View.VISIBLE
                 Toast.makeText(this, "Number should start with 9", Toast.LENGTH_SHORT).show()
             } else {
                 mobileNumber = "+63$mobileNumber"
@@ -61,11 +63,16 @@ class GetPinActivity : AppCompatActivity() {
                     object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
                         override fun onVerificationCompleted(credential: PhoneAuthCredential) {
                             // verification completed successfully
+                            buttonGetOTP.visibility =View.VISIBLE
+                            progressBar.visibility = View.INVISIBLE
+                            Toast.makeText(this@GetPinActivity, "Verification code sent!", Toast.LENGTH_SHORT).show()
                             // You can sign in the user with the credential here
                         }
 
                         override fun onVerificationFailed(e: FirebaseException) {
                             // verification failed
+                            buttonGetOTP.visibility =View.VISIBLE
+                            progressBar.visibility = View.INVISIBLE
                             Log.e("PhoneAuth", "Verification failed", e)
                             Toast.makeText(this@GetPinActivity, e.message, Toast.LENGTH_SHORT)
                                 .show()
@@ -78,6 +85,8 @@ class GetPinActivity : AppCompatActivity() {
                         ) {
                             // Store the verification ID and resending token so we can use them later
                             val intent = Intent(this@GetPinActivity, EnterPinActivity::class.java)
+                            buttonGetOTP.visibility =View.VISIBLE
+                            progressBar.visibility =View.INVISIBLE
                             intent.putExtra("verificationId", verificationId)
                             intent.putExtra("token", token)
                             intent.putExtra("mobile", mobileNumber)
@@ -88,27 +97,14 @@ class GetPinActivity : AppCompatActivity() {
                                 "OTP sent successfully",
                                 Toast.LENGTH_SHORT
                             ).show()
-                            webView.visibility = View.VISIBLE
-                            webView.webViewClient = object : WebViewClient() {
-                                override fun onPageFinished(view: WebView, url: String) {
-                                    super.onPageFinished(view, url)
-                                    // check if the reCAPTCHA page is loaded
-                                    if (url.contains("google.com/recaptcha")) {
-                                        // hide the loading spinner and show the WebView
-                                        webView.visibility = View.GONE
-                                    }
-                                }
-                            }
 
-                            webView.loadUrl("https://example.com/recaptcha")
                         }
-                    } )
-                }
+
+                    }   )
             }
+
         }
     }
-
-
-
+}
 
 

@@ -71,8 +71,10 @@
                 android:importantForAutofill="no"
                 android:inputType="number"
                 android:maxLength="1"
+                android:textCursorDrawable="@null"
+                android:background="#87CEEB"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 tools:ignore="LabelFor"/>
 
@@ -81,13 +83,15 @@
                 android:layout_width="40dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="4dp"
+                android:textCursorDrawable="@null"
                 android:gravity="center"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
                 android:inputType="number"
+                android:background="#87CEEB"
                 android:maxLength="1"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 tools:ignore="LabelFor"/>
 
@@ -96,13 +100,15 @@
                 android:layout_width="40dp"
                 android:layout_height="45dp"
                 android:layout_marginStart="4dp"
+                android:textCursorDrawable="@null"
                 android:gravity="center"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
                 android:inputType="number"
                 android:maxLength="1"
+                android:background="#87CEEB"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 tools:ignore="LabelFor"/>
 
@@ -112,12 +118,14 @@
                 android:layout_height="45dp"
                 android:layout_marginStart="4dp"
                 android:gravity="center"
+                android:textCursorDrawable="@null"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
                 android:inputType="number"
+                android:background="#87CEEB"
                 android:maxLength="1"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 tools:ignore="LabelFor"/>
 
@@ -127,12 +135,14 @@
                 android:layout_height="45dp"
                 android:layout_marginStart="4dp"
                 android:gravity="center"
+                android:textCursorDrawable="@null"
                 android:imeOptions="actionNext"
                 android:importantForAutofill="no"
                 android:inputType="number"
+                android:background="#87CEEB"
                 android:maxLength="1"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 tools:ignore="LabelFor"/>
 
@@ -142,12 +152,14 @@
                 android:layout_height="45dp"
                 android:layout_marginStart="4dp"
                 android:gravity="center"
+                android:textCursorDrawable="@null"
                 android:imeOptions="actionDone"
                 android:importantForAutofill="no"
                 android:inputType="number"
                 android:maxLength="1"
+                android:background="#87CEEB"
                 android:textColor="@color/black"
-                android:textSize="24sp"
+                android:textSize="16sp"
                 android:textStyle="bold"
                 tools:ignore="LabelFor"/>
 
@@ -177,13 +189,16 @@
                 android:text="@string/resend_otp"
                 android:textColor="#FF0000"
                 android:textSize="15sp"
+                android:elevation="0dp"
                 android:textStyle="bold"
                 android:background="@color/white"
 
                 />
 
         </LinearLayout>
-
+<FrameLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
         <Button
             android:id="@+id/buttonVerify"
             android:layout_width="match_parent"
@@ -194,8 +209,14 @@
             android:textColor="@color/white"
             android:textSize="16sp"
             android:textStyle="bold"/>
-
-
+        <ProgressBar
+            android:id="@+id/progressBar2"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_gravity="center"
+            android:visibility="gone"
+            />
+</FrameLayout>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 

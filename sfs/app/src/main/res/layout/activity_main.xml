@@ -23,7 +23,7 @@
         android:id="@+id/BackButton"
         android:layout_width="300dp"
         android:layout_height="40dp"
-        android:src="@drawable/logo_sfssmall"
+        android:src="@drawable/sentrien_version_logo"
         android:scaleType="fitStart"
         android:background="@color/white"
         android:contentDescription="@string/LogoHome" />
@@ -261,7 +261,7 @@
             android:textColor="#FFFFFF" />
 
     </LinearLayout>
-<ScrollView
+ <ScrollView
     android:layout_width="match_parent"
     android:layout_height="0dp"
     app:layout_constraintHeight_min="5dp"
@@ -791,6 +791,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:text="@string/field_notes"
                     android:textColor="@color/black"
                     android:textSize="15sp"
@@ -799,10 +801,10 @@
                 <TextView
                     android:id="@+id/fieldnotes_content"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="10dp"
-                    android:background="@color/white"
+                    android:background="#F2F3F5"
                     android:text=""
                     android:textColor="@color/black"
                     android:textSize="15sp"
@@ -827,6 +829,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="5dp"
+                    android:layout_gravity="center"
+                    android:gravity="center"
                     android:text="@string/recommendations"
                     android:textColor="@color/black"
                     android:textSize="15sp"
@@ -835,11 +839,11 @@
                 <TextView
                     android:id="@+id/recommendations_content"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="50dp"
                     android:layout_marginTop="5dp"
                     android:layout_marginEnd="10dp"
                     android:layout_marginBottom="5dp"
-                    android:background="@color/white"
+                    android:background="#F2F3F5"
                     android:text=""
                     android:textColor="@color/black"
                     android:textSize="15sp"
