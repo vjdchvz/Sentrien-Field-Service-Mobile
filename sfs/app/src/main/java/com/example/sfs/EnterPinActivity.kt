@@ -5,25 +5,136 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.text.Editable
 import android.text.TextWatcher
-import android.widget.Button
-import android.widget.EditText
-import android.widget.TextView
+import android.view.View
+import android.widget.*
+import com.google.firebase.FirebaseApp
+import com.google.firebase.FirebaseException
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseAuthInvalidCredentialsException
+import com.google.firebase.auth.PhoneAuthCredential
+import com.google.firebase.auth.PhoneAuthProvider
+import java.util.concurrent.TimeUnit
 
 class EnterPinActivity : AppCompatActivity() {
+    private var verificationId: String? = null
+    private var mobileNumber: String? = null
+    private var resendToken: PhoneAuthProvider.ForceResendingToken? = null
+    private lateinit var auth: FirebaseAuth
+    private lateinit var callbacks: PhoneAuthProvider.OnVerificationStateChangedCallbacks
 
     override fun onCreate(savedInstanceState: Bundle?) {
+        FirebaseApp.initializeApp(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_enter_pin)
 
-        val textMobile: TextView = findViewById(R.id.textMobile)
-        val mobileNumber = intent.getStringExtra("mobile")
-        textMobile.text = String.format("+63-%s", mobileNumber)
+        //resend
 
-        val buttonVerify: Button = findViewById(R.id.buttonVerify)
-        buttonVerify.setOnClickListener {
-            val mainIntent = Intent(this, MainActivity::class.java)
-            startActivity(mainIntent)
+        callbacks = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+            override fun onVerificationCompleted(credential: PhoneAuthCredential) {
+                // verification successful
+                auth.signInWithCredential(credential).addOnCompleteListener(this@EnterPinActivity) { task ->
+                    if (task.isSuccessful) {
+                        Toast.makeText(this@EnterPinActivity, "Verification Successful", Toast.LENGTH_SHORT).show()
+                        val intent = Intent(this@EnterPinActivity, MainActivity::class.java)
+                        startActivity(intent)
+                        finish()
+                    } else {
+                        Toast.makeText(this@EnterPinActivity, "Error: " + task.exception?.localizedMessage, Toast.LENGTH_SHORT).show()
+                    }
+                }
+            }
+
+            override fun onVerificationFailed(e: FirebaseException) {
+                Toast.makeText(this@EnterPinActivity, "Error: " + e.localizedMessage, Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onCodeSent(verificationId: String, token: PhoneAuthProvider.ForceResendingToken) {
+                super.onCodeSent(verificationId, token)
+                this@EnterPinActivity.verificationId = verificationId
+                resendToken = token
+            }
         }
+
+// Get the verificationId and mobile number from the intent
+        verificationId = intent.getStringExtra("verificationId")
+        mobileNumber = intent.getStringExtra("mobile")
+
+        val textMobile: TextView = findViewById(R.id.textMobile)
+        textMobile.text = String.format("The number you input %s", mobileNumber)
+        auth = FirebaseAuth.getInstance()
+
+        val buttonResendOTP = findViewById<Button>(R.id.textResendOTP)
+        buttonResendOTP.setOnClickListener {
+
+            if (resendToken != null) {
+                PhoneAuthProvider.getInstance().verifyPhoneNumber(
+                    "+63$mobileNumber", // Phone number to verify
+                    60, // Timeout duration
+                    TimeUnit.SECONDS, // Unit of timeout
+                    this, // Activity (for callback binding)
+                    callbacks, // OnVerificationStateChangedCallbacks
+                    resendToken // token for resending the verification code
+                )
+            }
+        }
+
+
+        val buttonVerify = findViewById<Button>(R.id.buttonVerify)
+        buttonVerify.setOnClickListener {
+            val progressBar = findViewById<ProgressBar>(R.id.progressBar2)
+            progressBar.visibility = View.VISIBLE
+            buttonVerify.visibility =View.INVISIBLE
+            val code = findViewById<EditText>(R.id.inputCode1).text.toString() +
+                    findViewById<EditText>(R.id.inputCode2).text.toString() +
+                    findViewById<EditText>(R.id.inputCode3).text.toString() +
+                    findViewById<EditText>(R.id.inputCode4).text.toString() +
+                    findViewById<EditText>(R.id.inputCode5).text.toString() +
+                    findViewById<EditText>(R.id.inputCode6).text.toString()
+
+
+            if (code.isEmpty()) {
+                progressBar.visibility = View.INVISIBLE
+                buttonVerify.visibility =View.VISIBLE
+                Toast.makeText(this, "Please enter the code", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            val credential = PhoneAuthProvider.getCredential(verificationId!!, code)
+            auth.signInWithCredential(credential).addOnCompleteListener(this) { task ->
+                if (task.isSuccessful) {
+                    // verification successful
+                    progressBar.visibility = View.INVISIBLE
+                    buttonVerify.visibility =View.VISIBLE
+                    Toast.makeText(this, "Verification Successful", Toast.LENGTH_SHORT).show()
+                    // proceed to the next activity
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else {
+                    if (task.exception is FirebaseAuthInvalidCredentialsException) {
+                        progressBar.visibility = View.INVISIBLE
+                        buttonVerify.visibility =View.VISIBLE
+                        Toast.makeText(
+                            this,
+                            "Invalid code. Please try again.",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    } else {
+                        progressBar.visibility = View.INVISIBLE
+                        buttonVerify.visibility =View.VISIBLE
+                        Toast.makeText(
+                            this,
+                            "Error: " + task.exception?.localizedMessage,
+                            Toast.LENGTH_SHORT
+                        ).show()
+                    }
+                }
+            }
+        }
+
+
+
+
         setupOTPInputs()
     }
 
@@ -81,5 +192,4 @@ class EnterPinActivity : AppCompatActivity() {
         inputCode5.addTextChangedListener(textWatcher)
         inputCode6.addTextChangedListener(textWatcher)
     }
-
 }

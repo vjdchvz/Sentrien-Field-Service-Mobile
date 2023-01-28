@@ -15,7 +15,7 @@
     <string name="arrive">arrive</string>
     <string name="pause">Pause</string>
     <string name="otp_verification">Otp Verification</string>
-    <string name="OTP_verification">OTPverification</string>
+    <string name="OTP_verification">OTVerification</string>
     <string name="otp_verification1">OTP Verification</string>
     <string name="we_will_send_you_an_otp">We will send you an OTP</string>
     <string name="enter_mobile_number">Enter Mobile Number</string>
@@ -30,6 +30,31 @@
     <string name="didn_t_receive_the_otp">Didn\'t receive the OTP?</string>
     <string name="resend_otp">RESEND OTP</string>
     <string name="verify">VERIFY</string>
+    <string name="_09123457890">09123457890</string>
+    <string name="_9875432109">9875432109</string>
+    <string name="job_number">JOB NUMBER</string>
+    <string name="LogoHome">LogeHome</string>
+    <string name="HistoryButton">HistoryButton</string>
+    <string name="tech_status">TECH STATUS</string>
+    <string name="sched_duration">SCHED. DURATION</string>
+    <string name="job_status">JOB STATUS</string>
+    <string name="menu">menu</string>
+    <string name="lookup">LOOKUP</string>
+    <string name="job_lead">JOB LEAD</string>
+    <string name="task">TASK</string>
+    <string name="sched_start_date">SCHED. START DATE</string>
+    <string name="start_date">START DATE</string>
+    <string name="end_date">END DATE</string>
+    <string name="resume_date">RESUME DATE</string>
+    <string name="hq_notes">HQ NOTES</string>
+    <string name="time_notes">TIME NOTES</string>
+    <string name="mileage">MILEAGE</string>
+    <string name="field_notes">FIELD NOTES</string>
+    <string name="recommendations">RECOMMENDATIONS</string>
+    <string name="version_4_0_6">Version 4.0.6</string>
+    <string name="ns_employee_id">NS Employee ID</string>
+    <string name="ns_truck_id">NS Truck ID</string>
+    <string name="license_key">License Key</string>
 
     <string-array name="Jobs">
         <item>-No Job Selected-</item>
